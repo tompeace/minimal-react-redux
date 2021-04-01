@@ -20,4 +20,4 @@
 
 you can then run the app by serving the `dist` folder by running
 
-`npx serve ./dist -p 8080`
+`npx serve ./dist -s -p 8080`

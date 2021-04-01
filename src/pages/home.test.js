@@ -14,7 +14,17 @@ describe("Home Page", () => {
     const count = screen.getByTestId('count')
     
     userEvent.click(button)
+    userEvent.click(button)
+    userEvent.click(button)
 
-    expect(count).toHaveTextContent("1")
+    expect(count).toHaveTextContent("3")
+  })
+
+  it('should decrease', () => {
+    render(<HomePage />)
+
+    const count = screen.getByTestId('count')
+
+    screen.debug()
   })
 })

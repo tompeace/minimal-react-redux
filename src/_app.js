@@ -1,8 +1,10 @@
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { store } from './store'
+import { makeStore } from './store'
 import Pages from './pages'
 import Navigation from './components/navigation'
+
+const store = makeStore()
 
 export default function App(props) {
   return (
