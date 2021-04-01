@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
     tailwindcss: {
-      purge: ['./src/pages/**/*.js', './src/components/**/*.js'],
+      purge: ['./src/**/*.js'],
       darkMode: 'media',
       theme: {
         extend: {},

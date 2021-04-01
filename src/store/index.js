@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import notificationReducer from './notifications'
+import countReducer from './count'
 
 export const store = configureStore({
   reducer: {
-    notifications: notificationReducer,
+    count: countReducer,
   },
-  devTools: true,
+  devTools: true
 })

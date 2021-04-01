@@ -3,9 +3,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HTMLwebplugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-module.exports = (env = "development") => {
+module.exports = (env) => {
 
-  const isDev = env !== "production"
+  const isDev = env === "development"
+
+  console.log('environment', env);
 
   const webpackPlugins = [
     new HTMLwebplugin({ template: './src/index.html' }),
