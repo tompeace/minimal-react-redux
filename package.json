@@ -6,6 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": false,
+  "keywords": ["minimal", "boilerplate", "react", "redux", "2021", "static", "web", "app"],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env development",
     "build": "cross-env NODE_ENV=production webpack --env production",
