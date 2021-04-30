@@ -4,10 +4,8 @@ const HTMLwebplugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = (env) => {
-
-  const isDev = env === "development"
-
-  console.log('environment', env);
+  const mode = env.development ? "development" : "production"
+  const isDev = mode === "development"
 
   const webpackPlugins = [
     new HTMLwebplugin({ template: './src/index.html' }),
@@ -20,7 +18,7 @@ module.exports = (env) => {
     : MiniCssExtractPlugin.loader
 
   return {
-    mode: env,
+    mode,
     output: {
       publicPath: '/',
       filename: 'index.js'

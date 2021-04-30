@@ -1,7 +1,7 @@
+import { Fragment } from "react"
 import PageTitle from "@/components/page-title"
 import { useDispatch, useSelector } from "react-redux"
 import { increase, decrease } from '@/store/count'
-import { Fragment } from "react"
 
 const Button = ({ children, ...props }) => (
   <button
