@@ -6,6 +6,6 @@ module.exports = api => {
       '@babel/preset-env',
       ["@babel/preset-react", { "runtime": "automatic" }]
     ],
-    ...(api.env('development') && { plugins: ['react-refresh/babel'] }),
+    ...(!api.env('production') && { plugins: ['react-refresh/babel'] }),
   };
 };

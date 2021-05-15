@@ -19,12 +19,4 @@ describe("Home Page", () => {
 
     expect(count).toHaveTextContent("3")
   })
-
-  it('should decrease', () => {
-    render(<HomePage />)
-
-    const count = screen.getByTestId('count')
-
-    screen.debug()
-  })
 })

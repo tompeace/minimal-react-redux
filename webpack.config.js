@@ -1,14 +1,18 @@
 const path = require('path')
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HTMLwebplugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-module.exports = (env) => {
-  const mode = env.development ? "development" : "production"
-  const isDev = mode === "development"
+const isDev = process.env.NODE_ENV !== 'production';
+
+module.exports = () => {
+
+  const mode = isDev ? 'development' : 'production'
 
   const webpackPlugins = [
     new HTMLwebplugin({ template: './src/index.html' }),
+    isDev && new webpack.HotModuleReplacementPlugin(),
     isDev && new ReactRefreshWebpackPlugin(),
     !isDev && new MiniCssExtractPlugin(),
   ].filter(Boolean)
@@ -19,6 +23,10 @@ module.exports = (env) => {
 
   return {
     mode,
+    target: 'web',
+    entry: {
+      main: './src/index.js',
+    },
     output: {
       publicPath: '/',
       filename: 'index.js'
@@ -28,9 +36,7 @@ module.exports = (env) => {
         {
           test: /\.(js|jsx)$/i,
           include: path.join(__dirname, 'src'),
-          use: {
-            loader: 'babel-loader',
-          }
+          use: 'babel-loader'
         },
         {
           test: /\.css$/i,
